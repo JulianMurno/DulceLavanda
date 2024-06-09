@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: "sistema"
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn sistema.wsgi:application"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        value: "django-insecure-4h#z3yq5b6+3!v)u@a=d3^1-3s0=^x=d=a$@xsz=n=yl93hltr"
+      - key: DATABASE_URL
+        value: "sqlite:///db.sqlite3"
